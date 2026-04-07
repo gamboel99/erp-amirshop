@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AMIR SHOP SYSTEM</title>
+  <style>
+    body { font-family: Arial; background:#f5f5f5; }
+    .card {
+      background:white;
+      padding:15px;
+      margin:10px;
+      border-radius:10px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding:8px;
+      margin:5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>AMIR SHOP - ADMIN PANEL</h1>
+
+<div class="card">
+  <h2>💱 Konversi Rupiah ke USD</h2>
+  <input id="rupiah" placeholder="Rp">
+  <input id="kurs" placeholder="Kurs (15500)">
+  <button onclick="convertUSD()">Hitung</button>
+  <p id="usd"></p>
+</div>
+
+<div class="card">
+  <h2>📦 Input Produk</h2>
+  <input id="nama_produk" placeholder="Nama Produk">
+  <input id="harga_modal" placeholder="Harga Modal">
+  <button onclick="tambahProduk()">Simpan</button>
+</div>
+
+<div class="card">
+  <h2>📊 Data Produk</h2>
+  <ul id="produkList"></ul>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
