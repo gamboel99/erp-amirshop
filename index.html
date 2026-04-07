@@ -1,47 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AMIR SHOP SYSTEM</title>
-  <style>
-    body { font-family: Arial; background:#f5f5f5; }
-    .card {
-      background:white;
-      padding:15px;
-      margin:10px;
-      border-radius:10px;
-      box-shadow:0 2px 5px rgba(0,0,0,0.1);
-    }
-    input, button {
-      padding:8px;
-      margin:5px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>AMIR SHOP PRO</title>
+
+<style>
+body {
+  font-family: Arial;
+  background:#eef2f7;
+  margin:0;
+}
+
+header {
+  background:#1e3a8a;
+  color:white;
+  padding:15px;
+  text-align:center;
+}
+
+.container {
+  padding:20px;
+}
+
+.card {
+  background:white;
+  padding:15px;
+  margin-bottom:20px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  margin-top:0;
+}
+
+input, button, select {
+  padding:8px;
+  margin:5px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+button {
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+
+table {
+  width:100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding:10px;
+  border-bottom:1px solid #ddd;
+  text-align:center;
+}
+
+th {
+  background:#f1f5f9;
+}
+</style>
 </head>
+
 <body>
 
-<h1>AMIR SHOP - ADMIN PANEL</h1>
+<header>
+<h1>AMIR SHOP SYSTEM PRO</h1>
+<p>Kontrol Stok, Penjualan, dan Keuangan</p>
+</header>
 
+<div class="container">
+
+<!-- KONVERSI USD -->
 <div class="card">
-  <h2>💱 Konversi Rupiah ke USD</h2>
-  <input id="rupiah" placeholder="Rp">
-  <input id="kurs" placeholder="Kurs (15500)">
-  <button onclick="convertUSD()">Hitung</button>
-  <p id="usd"></p>
+<h2>💱 Konversi Rupiah → USD</h2>
+<input id="rp" placeholder="Rupiah">
+<input id="kurs" placeholder="Kurs (contoh 15500)">
+<button onclick="convert()">Hitung</button>
+<p id="usd"></p>
 </div>
 
+<!-- INPUT PENJUALAN -->
 <div class="card">
-  <h2>📦 Input Produk</h2>
-  <input id="nama_produk" placeholder="Nama Produk">
-  <input id="harga_modal" placeholder="Harga Modal">
-  <button onclick="tambahProduk()">Simpan</button>
+<h2>🧾 Input Penjualan</h2>
+
+<select id="produkSelect"></select>
+<input id="qty" placeholder="Jumlah">
+<input id="harga" placeholder="Harga Jual">
+<button onclick="tambahPenjualan()">Simpan</button>
+
 </div>
 
+<!-- LAPORAN -->
 <div class="card">
-  <h2>📊 Data Produk</h2>
-  <ul id="produkList"></ul>
+<h2>📊 Laporan Stok & Penjualan</h2>
+
+<table>
+<thead>
+<tr>
+<th>Produk</th>
+<th>Masuk</th>
+<th>Terjual</th>
+<th>Sisa</th>
+<th>Total Rp</th>
+<th>USD</th>
+</tr>
+</thead>
+
+<tbody id="laporan"></tbody>
+
+</table>
+</div>
+
 </div>
 
 <script src="app.js"></script>
-
 </body>
 </html>
